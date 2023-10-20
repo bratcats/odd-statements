@@ -15,9 +15,17 @@ func TestCatRandomStatement(t *testing.T) {
 
 func containsSubstring(s string, substrings []string) bool {
 	for _, substring := range substrings {
-		if strings.Contains(s, substring) {
+		if strings.Contains(strings.ToLower(s), strings.ToLower(substring)) {
 			return true
 		}
 	}
 	return false
+}
+
+func TestRandomStatement(t *testing.T) {
+	want := "This is a random statement"
+	if got := RandomStatement(); got != want {
+		t.Errorf("RandomStatement() = %q, want = %q", got, want)
+	}
+
 }

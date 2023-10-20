@@ -32,3 +32,7 @@ func CatRandomStatement() string {
 
 	return catFact.Fact
 }
+
+func RandomStatement() string {
+	return "This is a random statement"
+}
