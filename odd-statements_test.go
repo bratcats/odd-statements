@@ -29,3 +29,11 @@ func TestRandomStatement(t *testing.T) {
 	}
 
 }
+
+func TestHelloInGerman(t *testing.T) {
+	want := "Guten Tag!"
+	if got := HelloInGerman(); got != want {
+		t.Errorf("HelloInGerman() = %q, want = %q", got, want)
+	}
+
+}

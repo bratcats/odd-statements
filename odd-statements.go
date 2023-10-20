@@ -36,3 +36,7 @@ func CatRandomStatement() string {
 func RandomStatement() string {
 	return "This is a random statement"
 }
+
+func HelloInGerman() string {
+	return "Guten Tag!"
+}
