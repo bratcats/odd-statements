@@ -1,0 +1,41 @@
+name: Generate new Tag
+
+on:
+ workflow_dispatch:
+   inputs:
+     tag:
+       description: 'Tag For odd-statements module'
+       required: true
+       type: text
+ repository_dispatch:
+   types: [generate-new-tag]
+ 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21.3'
+
+    - name: Tidy
+      run: go mod tidy
+      
+    - name: Build
+      run: go build -v ./...
+
+    - name: Test
+      run: go test -v ./...
+
+    - name: Tag the commit
+      env:
+        TAG: ${{ inputs.tag }}
+      run: |
+        git tag $TAG
+        git push origin $tag_name
+
