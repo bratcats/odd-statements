@@ -12,7 +12,7 @@ on:
  
 
 jobs:
-  build:
+  build-and-tag:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Code
@@ -28,10 +28,10 @@ jobs:
       
     - name: Build
       run: go build -v ./...
-
+      
     - name: Test
-      run: go test -v ./...
-
+      run: go test -v ./..
+      
     - name: Tag the commit
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
