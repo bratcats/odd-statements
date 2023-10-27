@@ -31,6 +31,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         TAG: ${{ inputs.tag }}
       run: |
-        git tag v$TAG
+        tag_name="v$TAG"
+        git tag $tag_name
         git push origin $tag_name
 
