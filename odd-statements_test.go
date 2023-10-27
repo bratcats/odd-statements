@@ -7,7 +7,7 @@ import (
 
 func TestCatRandomStatement(t *testing.T) {
 	// creat a slice of strings
-	want := []string{"cheetah", "cat", "kitten"}
+	want := []string{"cheetah", "cat", "kitten", "leopard"}
 	if got := CatRandomStatement(); !containsSubstring(got, want) {
 		t.Errorf("CatRandomStatement() = %q does not contain any %q occurence", got, want)
 	}
